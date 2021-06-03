@@ -14,13 +14,18 @@ const StyledTrackItem = styled.li`
 
   .track-details {
     margin-left: 20px;
+    font-size: 1.4rem;
     p {
       margin: 0;
     }
   }
 
   .album-cover {
+    position: relative;
+    width: 120px;
+    height: 120px;
     border-radius: var(--border-radius);
+    overflow: hidden;
   }
 
   .colors {

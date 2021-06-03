@@ -1,5 +1,6 @@
 import { usePalette } from 'color-thief-react';
 import StyledTrackItem from '../styles/TrackItemStyles';
+import Image from 'next/image';
 
 const colorCount = 4;
 const format = 'hex';
@@ -28,7 +29,10 @@ export default function TrackItem({ track }) {
         ></div>
       )} */}
       <div className="track-info">
-        <img className="album-cover" src={albumCover.url} alt="" width={100} />
+        <div className="album-cover">
+          <Image src={albumCover.url} alt="" layout="fill" objectFit="cover" />
+        </div>
+
         <div className="track-details">
           <p className="track-name">{track.name}</p>
           <p className="artist">
@@ -53,7 +57,7 @@ export default function TrackItem({ track }) {
                 style={{ backgroundColor: color }}
                 className="color"
               >
-                {color}
+                {/* {color} */}
               </div>
             ))}
           </div>

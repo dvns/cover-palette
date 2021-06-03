@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "color-thief-react": "^2.0.12",
     "next": "10.2.3",
     "next-auth": "^3.25.0",
     "react": "17.0.2",

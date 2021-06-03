@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { signIn, signOut, useSession } from 'next-auth/client';
 import TracksList from '../components/TracksList';
+import { StyledWrapper } from '../styles/WrapperStyles';
 
 export default function Home() {
   const [session, loading] = useSession();
@@ -16,19 +17,21 @@ export default function Home() {
       </Head>
 
       <main>
-        {!session && (
-          <>
-            Not signed in <br />
-            <button onClick={() => signIn('spotify')}>Sign in</button>
-          </>
-        )}
-        {session && (
-          <>
-            Signed in as {session.user?.name} <br />
-            <button onClick={() => signOut('spotify')}>Sign out</button>
-            <TracksList />
-          </>
-        )}
+        <StyledWrapper>
+          {!session && (
+            <>
+              Not signed in <br />
+              <button onClick={() => signIn('spotify')}>Sign in</button>
+            </>
+          )}
+          {session && (
+            <>
+              Signed in as {session.user?.name} <br />
+              <button onClick={() => signOut('spotify')}>Sign out</button>
+              <TracksList />
+            </>
+          )}
+        </StyledWrapper>
       </main>
     </div>
   );

@@ -1,6 +1,7 @@
 import useSWR from 'swr';
 import { useSession } from 'next-auth/client';
-import TrackListItem from './TrackListItem';
+import TrackItem from './TrackItem';
+import StyledTracksList from '../styles/TracksListStyles';
 
 const LIMIT = 10;
 const RECENT_TRACKS_ENDPOINT = `https://api.spotify.com/v1/me/player/recently-played?limit=${LIMIT}`;
@@ -18,10 +19,10 @@ export default function TracksList() {
   const [session, sessionLoading] = useSession();
   const { data, error } = useSWR(session.user.accessToken, getRecentTracks);
   return (
-    <ul>
+    <StyledTracksList>
       {data?.items.map((item) => (
-        <TrackListItem track={item.track} key={item.played_at} />
+        <TrackItem track={item.track} key={item.played_at} />
       ))}
-    </ul>
+    </StyledTracksList>
   );
 }

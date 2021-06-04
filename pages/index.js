@@ -3,9 +3,13 @@ import { signIn, signOut, useSession } from 'next-auth/client';
 import TracksList from '../components/TracksList';
 import { StyledWrapper } from '../styles/WrapperStyles';
 import { ToastContainer, Zoom } from 'react-toastify';
+import { getAccessToken, getSeveralTracks } from '../lib/spotify';
+import TrackItem from '../components/TrackItem';
+import StyledTracksList from '../styles/TracksListStyles';
 
-export default function Home() {
+export default function Home({ tracks }) {
   const [session, loading] = useSession();
+  console.log('# Session: ', session);
 
   if (loading) return <p>Loading...</p>;
 
@@ -18,13 +22,23 @@ export default function Home() {
       </Head>
 
       <main>
+        {!session && (
+          <section>
+            <h1>COVER PALETTES</h1>
+            <p>Colors inspired by what you're listening to!</p>
+            <StyledWrapper>
+              <StyledTracksList>
+                {tracks?.map((track) => (
+                  <TrackItem key={track.id} track={track} />
+                ))}
+              </StyledTracksList>
+            </StyledWrapper>
+            Not signed in <br />
+            <button onClick={() => signIn('spotify')}>Sign in</button>
+          </section>
+        )}
+
         <StyledWrapper>
-          {!session && (
-            <>
-              Not signed in <br />
-              <button onClick={() => signIn('spotify')}>Sign in</button>
-            </>
-          )}
           {session && (
             <>
               Signed in as {session.user?.name} <br />
@@ -48,4 +62,24 @@ export default function Home() {
       </main>
     </div>
   );
+}
+
+export async function getStaticProps() {
+  const accessToken = await getAccessToken();
+  const ids = [
+    '0v9Wz8o0BT8DU38R4ddjeH', // chance
+    '41zXlQxzTi6cGAjpOXyLYH', // billie
+    '3rfw4ft9rlXbbQzqRJIaYV', // gallant
+    '3hNywmR93yvj68y2zl8mRt', // busty
+  ];
+  const items = await getSeveralTracks(
+    accessToken.access_token,
+    ids.toString()
+  );
+
+  return {
+    props: {
+      tracks: items.tracks,
+    },
+  };
 }

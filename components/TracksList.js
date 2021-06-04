@@ -17,10 +17,16 @@ const getRecentTracks = async (accessToken) => {
 
 export default function TracksList() {
   const [session, sessionLoading] = useSession();
-  const { data, error } = useSWR(session.user.accessToken, getRecentTracks);
+  const { data, error } = useSWR(
+    () => session.user.accessToken,
+    getRecentTracks
+  );
+
+  // TO DO: error handling
+
   return (
     <StyledTracksList>
-      {data?.items.map((item) => (
+      {data?.items?.map((item) => (
         <TrackItem track={item.track} key={item.played_at} />
       ))}
     </StyledTracksList>

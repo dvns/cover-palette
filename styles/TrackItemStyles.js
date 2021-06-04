@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 const StyledTrackItem = styled.li`
-  margin: 30px 0;
   padding: 20px;
-  /* max-width: 600px; */
   border-radius: var(--border-radius);
   color: ${({ theme }) => theme.text};
-  /* background: rgba(255, 255, 255, 0.05); */
   background: ${({ theme }) => theme.background};
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);
+  /* background: linear-gradient(to bottom right, #fff, #fff); */
+
+  &:not(:first-child) {
+    margin-top: 30px;
+  }
 
   .track-info {
     display: flex;
@@ -60,6 +62,8 @@ const StyledTrackItem = styled.li`
     width: 100%;
     min-height: 35px;
     margin: 0;
+    font-size: 1.4rem;
+    font-weight: 700;
     transition: all 0.2s;
     cursor: pointer;
 

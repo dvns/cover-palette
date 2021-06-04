@@ -24,7 +24,7 @@ export default function TrackItem({ track, isCurrent }) {
   });
 
   const notify = () => {
-    toast.success('Color copied to clipboard!');
+    toast.success('Colour copied to clipboard!');
   };
 
   return (
@@ -95,7 +95,7 @@ export default function TrackItem({ track, isCurrent }) {
                   }}
                   className="color"
                 >
-                  {color.toUpperCase()}
+                  <span style={{ opacity: 0.6 }}>{color.toUpperCase()}</span>
                 </button>
               </CopyToClipboard>
             ))}

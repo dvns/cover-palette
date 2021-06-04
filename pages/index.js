@@ -23,18 +23,18 @@ export default function Home({ tracks }) {
 
       <main>
         {!session && (
-          <section>
-            <h1>COVER PALETTES</h1>
-            <p>Colors inspired by what you're listening to!</p>
+          <section className="hero">
             <StyledWrapper>
+              <h1>Cover Palettes</h1>
+              <h2>Colours inspired by what you're listening to!</h2>
               <StyledTracksList>
                 {tracks?.map((track) => (
                   <TrackItem key={track.id} track={track} />
                 ))}
               </StyledTracksList>
+              Not signed in <br />
+              <button onClick={() => signIn('spotify')}>Sign in</button>
             </StyledWrapper>
-            Not signed in <br />
-            <button onClick={() => signIn('spotify')}>Sign in</button>
           </section>
         )}
 

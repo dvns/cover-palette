@@ -16,6 +16,8 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     font-family: 'DM Sans', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 1.6rem;
+    /* background: #fff; */
+    background: #121212;
   }
 
   button {

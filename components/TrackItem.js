@@ -21,14 +21,6 @@ export default function TrackItem({ track }) {
 
   return (
     <StyledTrackItem>
-      {/* {paletteData && (
-        <div
-          className="background"
-          style={{
-            background: `linear-gradient(to bottom right, ${paletteData[0]}, ${paletteData[1]})`,
-          }}
-        ></div>
-      )} */}
       <div className="track-info">
         <div className="album-cover">
           <Image

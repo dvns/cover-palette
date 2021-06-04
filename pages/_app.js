@@ -1,8 +1,19 @@
 import { Provider } from 'next-auth/client';
 import Head from 'next/head';
-import { GlobalStyle } from '../styles/GlobalStyles';
+import { useState, useEffect } from 'react';
+import useDarkMode from 'use-dark-mode';
+import { lightTheme, darkTheme, GlobalStyle } from '../styles/GlobalStyles';
+import { ThemeProvider } from 'styled-components';
 
 export default function App({ Component, pageProps }) {
+  const [isMounted, setIsMounted] = useState(false);
+  const darkmode = useDarkMode(true);
+  const theme = darkmode.value ? darkTheme : lightTheme;
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <>
       <Head>
@@ -12,10 +23,13 @@ export default function App({ Component, pageProps }) {
           rel="stylesheet"
         />
       </Head>
-      <GlobalStyle />
-      <Provider session={pageProps.session}>
-        <Component {...pageProps} />
-      </Provider>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Provider session={pageProps.session}>
+          <button onClick={darkmode.toggle}>Switch Mode</button>
+          {isMounted && <Component {...pageProps} />}
+        </Provider>
+      </ThemeProvider>
     </>
   );
 }

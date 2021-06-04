@@ -5,9 +5,9 @@ const StyledTrackItem = styled.li`
   padding: 20px;
   /* max-width: 600px; */
   border-radius: var(--border-radius);
-  color: white;
+  color: ${({ theme }) => theme.text};
   /* background: rgba(255, 255, 255, 0.05); */
-  background: rgb(31, 31, 31);
+  background: ${({ theme }) => theme.background};
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);
 
   .track-info {

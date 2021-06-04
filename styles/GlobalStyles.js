@@ -18,6 +18,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
     /* background: #fff; */
     background: #121212;
+    color: white;
   }
 
   button {

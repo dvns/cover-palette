@@ -6,8 +6,8 @@ const StyledTrackItem = styled.li`
   /* max-width: 600px; */
   border-radius: var(--border-radius);
   color: white;
-  background: rgba(255, 255, 255, 0.05);
-  /* background: white; */
+  /* background: rgba(255, 255, 255, 0.05); */
+  background: rgb(31, 31, 31);
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.1);
 
   .track-info {
@@ -27,7 +27,7 @@ const StyledTrackItem = styled.li`
     }
 
     .icon {
-      margin-top: 3px;
+      margin-top: 2px;
     }
   }
 
@@ -40,13 +40,13 @@ const StyledTrackItem = styled.li`
     overflow: hidden;
 
     @media (min-width: 600px) {
-      width: 140px;
-      height: 140px;
+      width: 120px;
+      height: 120px;
     }
-    @media (min-width: 800px) {
+    /* @media (min-width: 800px) {
       width: 170px;
       height: 170px;
-    }
+    } */
   }
 
   .colors {
@@ -56,8 +56,10 @@ const StyledTrackItem = styled.li`
   }
 
   .color {
+    display: block;
     width: 100%;
     min-height: 35px;
+    margin: 0;
     transition: all 0.2s;
     cursor: pointer;
 

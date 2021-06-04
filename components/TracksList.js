@@ -17,10 +17,7 @@ const getRecentTracks = async (accessToken) => {
 
 export default function TracksList() {
   const [session, sessionLoading] = useSession();
-  const { data, error } = useSWR(
-    () => session.user.accessToken,
-    getRecentTracks
-  );
+  const { data, error } = useSWR(() => session.accessToken, getRecentTracks);
 
   // TO DO: error handling
 

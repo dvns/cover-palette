@@ -56,7 +56,10 @@ const StyledTrackItem = styled.li`
   }
 
   .color {
+    width: 100%;
     min-height: 35px;
+    transition: all 0.2s;
+    cursor: pointer;
 
     &:first-child {
       border-top-left-radius: var(--border-radius);
@@ -70,6 +73,11 @@ const StyledTrackItem = styled.li`
 
     @media (min-width: 500px) {
       flex-basis: 25%;
+
+      &:hover {
+        transform: scale(1.1);
+        z-index: 1;
+      }
 
       &:first-child {
         border-top-right-radius: 0;

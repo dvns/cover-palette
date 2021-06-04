@@ -22,5 +22,6 @@ export const GlobalStyle = createGlobalStyle`
 
   button {
     font-family: 'DM Sans', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+    border: none;
   }
 `;

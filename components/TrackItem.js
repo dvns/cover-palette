@@ -2,6 +2,7 @@ import { usePalette } from 'color-thief-react';
 import StyledTrackItem from '../styles/TrackItemStyles';
 import Image from 'next/image';
 import { MdAlbum, MdMusicNote, MdPerson } from 'react-icons/md';
+import CopyToClipboard from 'react-copy-to-clipboard';
 
 const colorCount = 4;
 const format = 'hex';
@@ -75,13 +76,11 @@ export default function TrackItem({ track }) {
         {paletteData && (
           <div className="colors">
             {paletteData.map((color) => (
-              <div
-                key={color}
-                style={{ backgroundColor: color }}
-                className="color"
-              >
-                {/* {color} */}
-              </div>
+              <CopyToClipboard text={color.toUpperCase()} key={color}>
+                <button style={{ backgroundColor: color }} className="color">
+                  {/* {color} */}
+                </button>
+              </CopyToClipboard>
             ))}
           </div>
         )}

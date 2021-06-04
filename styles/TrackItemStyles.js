@@ -18,14 +18,28 @@ const StyledTrackItem = styled.li`
     p {
       margin: 0;
     }
+
+    td {
+      vertical-align: top;
+    }
+
+    .icon {
+      margin-top: 3px;
+    }
   }
 
   .album-cover {
+    flex-shrink: 0;
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 75px;
+    height: 75px;
     border-radius: var(--border-radius);
     overflow: hidden;
+
+    @media (min-width: 500px) {
+      width: 140px;
+      height: 140px;
+    }
   }
 
   .colors {

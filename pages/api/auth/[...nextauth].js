@@ -50,7 +50,7 @@ export default NextAuth({
   // Configure one or more authentication providers
   providers: [
     Providers.Spotify({
-      scope: 'user-read-recently-played',
+      scope: 'user-read-recently-played user-read-currently-playing',
       clientId: process.env.SPOTIFY_CLIENT_ID,
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
       debug: true,
@@ -61,8 +61,8 @@ export default NextAuth({
     async jwt(token, user, account) {
       // Initial sign in
       if (account && user) {
-        // console.log('# Initial sign in');
-        // console.log({ token, user, account });
+        console.log('# Initial sign in');
+        console.log({ token, user, account });
         return {
           accessToken: account.accessToken,
           accessTokenExpires: Date.now() + account.expires_in * 1000,
@@ -73,12 +73,12 @@ export default NextAuth({
 
       // Return previous token if the access token has not expired yet
       if (Date.now() < token.accessTokenExpires) {
-        // console.log('# Token has not expired yet. Return previous token.');
+        console.log('# Token has not expired yet. Return previous token.');
         return token;
       }
 
       // Access token has expired, try to update it
-      // console.log('Access token has expired, try to update it');
+      console.log('Access token has expired, try to update it');
       return refreshAccessToken(token);
     },
     async session(session, token) {

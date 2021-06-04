@@ -12,7 +12,7 @@ const format = 'hex';
 const crossOrigin = 'anonymous';
 const quality = 10;
 
-export default function TrackItem({ track }) {
+export default function TrackItem({ track, isCurrent }) {
   const albumCover = track.album.images[1];
   const {
     data: paletteData,

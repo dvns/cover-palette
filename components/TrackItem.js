@@ -3,6 +3,8 @@ import StyledTrackItem from '../styles/TrackItemStyles';
 import Image from 'next/image';
 import { MdAlbum, MdMusicNote, MdPerson } from 'react-icons/md';
 import CopyToClipboard from 'react-copy-to-clipboard';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const colorCount = 4;
 const format = 'hex';
@@ -19,6 +21,10 @@ export default function TrackItem({ track }) {
     crossOrigin,
     quality,
   });
+
+  const notify = () => {
+    toast.success('Color copied to clipboard!');
+  };
 
   return (
     <StyledTrackItem>
@@ -76,7 +82,11 @@ export default function TrackItem({ track }) {
         {paletteData && (
           <div className="colors">
             {paletteData.map((color) => (
-              <CopyToClipboard text={color.toUpperCase()} key={color}>
+              <CopyToClipboard
+                text={color.toUpperCase()}
+                key={color}
+                onCopy={notify}
+              >
                 <button style={{ backgroundColor: color }} className="color">
                   {/* {color} */}
                 </button>

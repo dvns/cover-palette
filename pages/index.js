@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { signIn, signOut, useSession } from 'next-auth/client';
 import TracksList from '../components/TracksList';
 import { StyledWrapper } from '../styles/WrapperStyles';
+import { ToastContainer, Zoom } from 'react-toastify';
 
 export default function Home() {
   const [session, loading] = useSession();
@@ -32,6 +33,18 @@ export default function Home() {
             </>
           )}
         </StyledWrapper>
+        <ToastContainer
+          position="top-center"
+          autoClose={2000}
+          hideProgressBar
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable={false}
+          pauseOnHover
+          transition={Zoom}
+        />
       </main>
     </div>
   );

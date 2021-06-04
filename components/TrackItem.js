@@ -5,6 +5,7 @@ import { MdAlbum, MdMusicNote, MdPerson } from 'react-icons/md';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { mostReadable } from '@ctrl/tinycolor';
 
 const colorCount = 4;
 const format = 'hex';
@@ -87,8 +88,14 @@ export default function TrackItem({ track }) {
                 key={color}
                 onCopy={notify}
               >
-                <button style={{ backgroundColor: color }} className="color">
-                  {/* {color} */}
+                <button
+                  style={{
+                    backgroundColor: color,
+                    color: mostReadable(color, ['#fff', '#000']),
+                  }}
+                  className="color"
+                >
+                  {color.toUpperCase()}
                 </button>
               </CopyToClipboard>
             ))}

@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@ctrl/tinycolor": "^3.4.0",
     "color-thief-react": "^2.0.12",
     "next": "10.2.3",
     "next-auth": "^3.25.0",

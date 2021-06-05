@@ -9,6 +9,10 @@ export const StyledLightSwitch = styled.button`
   background-color: white;
   border-radius: calc(var(--height) / 2);
   overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(
+    white,
+    black
+  ); /* Safari fix for maintaining border-radius on element with overflow: hidden while a transition occurs */
 
   .ripple.dark {
     z-index: 1;

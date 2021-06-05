@@ -3,20 +3,22 @@ import { createGlobalStyle } from 'styled-components';
 export const lightTheme = {
   body: '#FFF',
   text: '#000',
-  background: '#fff',
+  spotifyButton: '#61d961',
+  spotifyButtonText: '#000',
 };
 
 export const darkTheme = {
   body: '#121212',
   text: '#FFF',
-  background: 'rgb(31, 31, 31)',
+  spotifyButton: '#61d961',
+  spotifyButtonText: '#000',
 };
 
 export const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 62.5%;
-    --border-radius: 10px;
+    --border-radius: 3px;
   }
 
   *, *:before, *:after {
@@ -36,17 +38,5 @@ export const GlobalStyle = createGlobalStyle`
   button {
     font-family: 'DM Sans', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
     border: none;
-  }
-
-  .hero {
-    h1 {
-      display: inline;
-      font-size: 6rem;
-      font-weight: 700;
-      margin: 0;
-      padding: 0;
-      line-height: 1;
-      letter-spacing: -.2rem;
-    }
   }
 `;

@@ -8,6 +8,10 @@ const StyledHeader = styled.header`
   position: absolute;
   z-index: 1021;
   width: 100%;
+
+  @media (min-width: 992px) {
+    position: fixed;
+  }
 `;
 
 export default function Header() {

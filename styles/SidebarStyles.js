@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledSidebar = styled.aside`
-  top: 20px !important;
+  top: 3rem !important;
   padding-right: 40px;
   margin-bottom: 30px;
   letter-spacing: -0.1rem;

@@ -6,6 +6,8 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import StyledTrackItem from '../styles/TrackItemStyles';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const colorCount = 4;
 const format = 'hex';
@@ -31,35 +33,37 @@ export default function TrackItem({ track, isCurrent }) {
   return (
     <StyledTrackItem>
       <div className="track-info">
-        <div className="square album-cover ratio ratio-1x1">
-          <Image
-            src={albumCover.url}
-            alt={track.album.name}
-            layout="fill"
-            objectFit="cover"
-          />
-        </div>
         {paletteLoading && <p>Loading...</p>}
         {paletteError && <p>There was an error...</p>}
-        {paletteData &&
-          paletteData.map((color) => (
-            <CopyToClipboard
-              text={color.toUpperCase()}
-              key={color}
-              onCopy={notify}
-            >
-              <div className="square color ratio ratio-1x1">
-                <button
-                  style={{
-                    backgroundColor: color,
-                    color: mostReadable(color, ['#fff', '#000']),
-                  }}
-                >
-                  <span className="label">{color.toUpperCase()}</span>
-                </button>
-              </div>
-            </CopyToClipboard>
-          ))}
+        <Row className="g-3">
+          <Col className="album-col">
+            <div className="square album-cover ratio ratio-1x1">
+              <Image
+                src={albumCover.url}
+                alt={track.album.name}
+                layout="fill"
+                objectFit="cover"
+              />
+            </div>
+          </Col>
+          {paletteData &&
+            paletteData.map((color) => (
+              <Col key={color} xs={false}>
+                <CopyToClipboard text={color.toUpperCase()} onCopy={notify}>
+                  <div className="square color ratio ratio-1x1">
+                    <button
+                      style={{
+                        backgroundColor: color,
+                        color: mostReadable(color, ['#fff', '#000']),
+                      }}
+                    >
+                      <span className="label">{color.toUpperCase()}</span>
+                    </button>
+                  </div>
+                </CopyToClipboard>
+              </Col>
+            ))}
+        </Row>
       </div>
       <div className="track-details">
         <table>

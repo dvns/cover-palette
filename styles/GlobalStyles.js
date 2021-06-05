@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
   html {
     box-sizing: border-box;
     font-size: 62.5%;
-    --border-radius: 8px;
+    --border-radius: 0;
   }
 
   *, *:before, *:after {

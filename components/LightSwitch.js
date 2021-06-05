@@ -1,6 +1,5 @@
 import useDarkMode from 'use-dark-mode';
-import { FaMoon } from 'react-icons/fa';
-import { FiSun } from 'react-icons/fi';
+import { FiMoon, FiSun } from 'react-icons/fi';
 import { StyledLightSwitch } from '../styles/LightSwitchStyles';
 
 export default function LightSwitch({ className }) {
@@ -14,7 +13,7 @@ export default function LightSwitch({ className }) {
       <div className="ripple light"></div>
 
       <div className="toggle dark">
-        <FaMoon />
+        <FiMoon />
       </div>
       <div className="toggle light">
         <FiSun />

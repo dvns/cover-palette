@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { signOut, useSession } from 'next-auth/client';
-import { ToastContainer, Zoom } from 'react-toastify';
+import { Flip, ToastContainer } from 'react-toastify';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -76,7 +76,7 @@ export default function Home({ tracks }) {
         pauseOnFocusLoss
         draggable={false}
         pauseOnHover
-        transition={Zoom}
+        transition={Flip}
       />
     </div>
   );

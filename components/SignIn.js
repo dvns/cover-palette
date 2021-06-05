@@ -14,7 +14,7 @@ export default function SignIn({ className }) {
   return (
     <StyledSignIn className={className}>
       <h2>
-        Sign in to Spotify and discover colours inspired by what you're
+        Sign in to Spotify and discover colours inspired&nbsp;by what you're
         listening&nbsp;to.
       </h2>
       <SpotifyButton onClick={() => signIn('spotify')}>

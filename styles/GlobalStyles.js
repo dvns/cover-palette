@@ -39,4 +39,14 @@ export const GlobalStyle = createGlobalStyle`
     font-family: 'DM Sans', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
     border: none;
   }
+
+  .Toastify__toast--success {
+    font-family: 'DM Sans', --apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue';
+    background: ${({ theme }) => theme.spotifyButton};
+    color: black;
+  }
+
+  .Toastify__close-button {
+    color: black;
+  }
 `;

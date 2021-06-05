@@ -8,6 +8,11 @@ const StyledHeader = styled.header`
   position: absolute;
   z-index: 1021;
   width: 100%;
+  pointer-events: none;
+
+  button {
+    pointer-events: auto;
+  }
 
   @media (min-width: 992px) {
     position: fixed;

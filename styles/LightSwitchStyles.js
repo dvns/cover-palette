@@ -14,6 +14,15 @@ export const StyledLightSwitch = styled.button`
     black
   ); /* Safari fix for maintaining border-radius on element with overflow: hidden while a transition occurs */
 
+  &:hover {
+    .toggle.dark {
+      color: ${({ theme }) => theme.body};
+    }
+    .toggle.light {
+      color: ${({ theme }) => theme.text};
+    }
+  }
+
   .ripple.dark {
     z-index: 1;
     transform: scale(4.8);
@@ -29,6 +38,15 @@ export const StyledLightSwitch = styled.button`
   &.checked {
     background-color: black;
     animation: changeColor 0.6s ease forwards;
+
+    &:hover {
+      .toggle.dark {
+        color: ${({ theme }) => theme.text};
+      }
+      .toggle.light {
+        color: ${({ theme }) => theme.body};
+      }
+    }
 
     @keyframes changeColor {
       80% {
@@ -58,13 +76,11 @@ export const StyledLightSwitch = styled.button`
   .toggle {
     width: calc(var(--height) - 4px);
     height: calc(var(--height) - 4px);
-
     position: absolute;
     top: 2px;
-
     border-radius: 50%;
-
     z-index: 5;
+    transition: color 0.2s ease;
 
     &.dark {
       background-color: black;

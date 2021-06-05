@@ -7,7 +7,7 @@ export default function LightSwitch({ className }) {
   return (
     <StyledLightSwitch
       onClick={darkmode.toggle}
-      className={`${darkmode.value ? 'checked' : ''} ${className}`}
+      className={`${darkmode.value ? 'checked' : ''} ${className || ''}`}
     >
       <div className="ripple dark"></div>
       <div className="ripple light"></div>

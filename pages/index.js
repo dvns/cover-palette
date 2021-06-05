@@ -13,6 +13,7 @@ import { StyledSignOutButton } from '../styles/SignOutButtonStyles';
 import { StyledSidebar } from '../styles/SidebarStyles';
 
 import Header from '../components/Header';
+import Blob from '../components/Blob';
 
 export default function Home({ tracks }) {
   const [session, loading] = useSession();
@@ -37,6 +38,7 @@ export default function Home({ tracks }) {
         <Row className="gx-5">
           <Col lg={3} className="mb-5">
             <StyledSidebar className="sticky-top">
+              <Blob />
               <h1>
                 Cover <br />
                 Palettes

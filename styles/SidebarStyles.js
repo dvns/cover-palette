@@ -22,4 +22,11 @@ export const StyledSidebar = styled.aside`
       margin-bottom: 30px;
     }
   }
+
+  .blob {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    z-index: -1;
+  }
 `;

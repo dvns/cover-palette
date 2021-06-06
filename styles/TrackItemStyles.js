@@ -69,9 +69,11 @@ const StyledTrackItem = styled.div`
       transition: all 0.2s;
       border-radius: var(--border-radius);
 
-      &:hover {
-        transform: scale(1.03);
-        z-index: 1;
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          transform: scale(1.03);
+          z-index: 1;
+        }
       }
     }
 

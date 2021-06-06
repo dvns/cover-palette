@@ -8,9 +8,11 @@ const StyledSpotifyButton = styled(StyledButton)`
   position: relative;
   transition: all 0.2s;
 
-  &:hover {
-    transform: scale(1.03);
-    z-index: 1;
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      transform: scale(1.03);
+      z-index: 1;
+    }
   }
 `;
 

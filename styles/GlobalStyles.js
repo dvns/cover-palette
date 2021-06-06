@@ -56,8 +56,10 @@ export const GlobalStyle = createGlobalStyle`
      color: ${({ theme }) => theme.text};
      transition: color 0.3s ease;
 
-     &:hover {
-      color: ${({ theme }) => theme.body};
-     }
+      @media (hover: hover) and (pointer: fine) {
+        &:hover {
+          color: ${({ theme }) => theme.body};
+        }
+      }
    }
 `;

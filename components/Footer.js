@@ -19,8 +19,11 @@ const StyledFooter = styled.footer`
 
   a {
     color: white;
-    &:hover {
-      color: black;
+
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        color: black;
+      }
     }
   }
 

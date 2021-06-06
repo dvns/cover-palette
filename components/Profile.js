@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Image from 'next/image';
 import { signOut, useSession } from 'next-auth/client';
 import Dropdown from 'react-bootstrap/Dropdown';
+import { HiOutlineExternalLink } from 'react-icons/hi';
 
 const StyledProfile = styled.div`
   --spacer: 10px;
@@ -27,6 +28,10 @@ const StyledProfile = styled.div`
       font-size: 1.6rem;
       z-index: 1021;
     }
+  }
+
+  .icon {
+    margin-top: -4px;
   }
 `;
 
@@ -56,7 +61,7 @@ export default function Profile() {
             href={`https://open.spotify.com/user/${session.user?.id}`}
             target="blank"
           >
-            View Profile
+            View Profile <HiOutlineExternalLink className="icon" />
           </Dropdown.Item>
           <Dropdown.Item as="button" onClick={() => signOut('spotify')}>
             Sign out

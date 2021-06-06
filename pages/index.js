@@ -33,7 +33,7 @@ export default function Home({ tracks }) {
                 <ReactPlaceholder
                   type="text"
                   ready={!sessionLoading}
-                  rows={6}
+                  rows={5}
                   color={theme.loadingFill}
                   showLoadingAnimation={true}
                   className="mx-auto ms-sm-5 ms-lg-0"

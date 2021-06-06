@@ -27,7 +27,7 @@ export default function SignIn({ className }) {
   return (
     <StyledSignIn className={className}>
       <h2 className="mx-auto">
-        Sign in to Spotify for colour inspirations from your own&nbsp;playlist!
+        Find colour inspirations from your&nbsp;own&nbsp;playlist!
       </h2>
       <SpotifyButton onClick={() => signIn('spotify')}>
         Connect to Spotify

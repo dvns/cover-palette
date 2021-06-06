@@ -5,6 +5,7 @@ export const lightTheme = {
   text: '#000',
   spotifyButton: '#61d961',
   spotifyButtonText: '#000',
+  loadingFill: '#E5E5E5',
 };
 
 export const darkTheme = {
@@ -12,6 +13,7 @@ export const darkTheme = {
   text: '#FFF',
   spotifyButton: '#61d961',
   spotifyButtonText: '#000',
+  loadingFill: '#1A1A1A',
 };
 
 export const GlobalStyle = createGlobalStyle`

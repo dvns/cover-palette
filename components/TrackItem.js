@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { usePalette } from 'color-thief-react';
 import { mostReadable } from '@ctrl/tinycolor';
+import { useTheme } from 'styled-components';
 import { MdAlbum, MdMusicNote, MdPerson } from 'react-icons/md';
 import CopyToClipboard from 'react-copy-to-clipboard';
 import { toast } from 'react-toastify';
@@ -14,6 +15,19 @@ const colorCount = 4;
 const format = 'hex';
 const crossOrigin = 'anonymous';
 const quality = 10;
+
+const PlaceholderSquare = () => {
+  const theme = useTheme();
+
+  return (
+    <Col>
+      <div
+        className="square color ratio ratio-1x1"
+        style={{ background: theme.loadingFill }}
+      />
+    </Col>
+  );
+};
 
 export default function TrackItem({ track, isCurrent }) {
   const albumCover = track.album.images[0];
@@ -34,7 +48,6 @@ export default function TrackItem({ track, isCurrent }) {
   return (
     <StyledTrackItem>
       <div className="track-info">
-        {paletteLoading && <p>Loading...</p>}
         {paletteError && <p>There was an error...</p>}
         <Row className="g-3">
           <Col className="album-col">
@@ -47,9 +60,17 @@ export default function TrackItem({ track, isCurrent }) {
               />
             </div>
           </Col>
+          {paletteLoading && (
+            <>
+              <PlaceholderSquare />
+              <PlaceholderSquare />
+              <PlaceholderSquare />
+              <PlaceholderSquare />
+            </>
+          )}
           {paletteData &&
             paletteData.map((color) => (
-              <Col key={color} xs={false}>
+              <Col key={color}>
                 <CopyToClipboard text={color.toUpperCase()} onCopy={notify}>
                   <div className="square color ratio ratio-1x1">
                     <button

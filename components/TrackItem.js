@@ -16,7 +16,7 @@ const crossOrigin = 'anonymous';
 const quality = 10;
 
 export default function TrackItem({ track, isCurrent }) {
-  const albumCover = track.album.images[1];
+  const albumCover = track.album.images[0];
 
   const {
     data: paletteData,

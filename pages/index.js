@@ -3,12 +3,11 @@ import { Flip, ToastContainer } from 'react-toastify';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import { SiSpotify } from 'react-icons/si';
+
 import { getAccessToken, getSeveralTracks } from '../lib/spotify';
 import TracksList from '../components/TracksList';
 import TrackItem from '../components/TrackItem';
 import SignIn from '../components/SignIn';
-import { StyledSignOutButton } from '../styles/SignOutButtonStyles';
 import { StyledSidebar } from '../styles/SidebarStyles';
 
 import Header from '../components/Header';
@@ -25,22 +24,13 @@ export default function Home({ tracks }) {
     <>
       <Header />
 
-      <Container fluid className="px-5 py-5" as="main">
+      <Container fluid className="px-4 py-5" as="main">
         <Row className="gx-5">
           <Col lg={3} className="mb-5">
             <StyledSidebar className="sticky-top">
               <Blob />
               <Logo />
               {!session && <SignIn />}
-              {session && (
-                <>
-                  <SiSpotify /> {session.user?.name}
-                  <span className="mx-3">|</span>
-                  <StyledSignOutButton onClick={() => signOut('spotify')}>
-                    Sign out
-                  </StyledSignOutButton>
-                </>
-              )}
             </StyledSidebar>
           </Col>
           <Col lg={8} className="mb-5">

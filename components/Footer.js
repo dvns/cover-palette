@@ -41,7 +41,7 @@ export default function Footer() {
   return (
     <StyledFooter>
       <Wave />
-      <Container fluid className="pb-5 px-5">
+      <Container fluid className="pb-4 px-4">
         <Row className="gx-5">
           <Col lg={{ span: 8, offset: 3 }}>
             <Logo />

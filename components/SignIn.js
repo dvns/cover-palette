@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import SpotifyButton from './SpotifyButton';
 
 const StyledSignIn = styled.div`
-  max-width: 400px;
+  max-width: 250px;
 
   h2 {
     margin-bottom: 30px;
@@ -13,12 +13,9 @@ const StyledSignIn = styled.div`
 export default function SignIn({ className }) {
   return (
     <StyledSignIn className={className}>
-      <h2>
-        Sign in to Spotify and discover colours inspired&nbsp;by what you're
-        listening&nbsp;to.
-      </h2>
+      <h2>Colour inspirations from your current playlist</h2>
       <SpotifyButton onClick={() => signIn('spotify')}>
-        Try it out!
+        Connect to Spotify
       </SpotifyButton>
     </StyledSignIn>
   );

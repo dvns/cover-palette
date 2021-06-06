@@ -50,7 +50,6 @@ const StyledTrackItem = styled.div`
 
   .color {
     display: inline-block;
-    cursor: pointer;
     position: relative;
 
     /* @media (min-width: 500px) {

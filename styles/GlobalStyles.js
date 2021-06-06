@@ -13,7 +13,7 @@ export const darkTheme = {
   text: '#FFF',
   spotifyButton: '#61d961',
   spotifyButtonText: '#000',
-  loadingFill: '#1A1A1A',
+  loadingFill: '#313131',
 };
 
 export const GlobalStyle = createGlobalStyle`

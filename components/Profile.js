@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { signOut, useSession } from 'next-auth/client';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { HiOutlineExternalLink } from 'react-icons/hi';
+import { IoPersonCircle } from 'react-icons/io5';
 
 const StyledProfile = styled.div`
   --spacer: 10px;
@@ -46,11 +47,15 @@ export default function Profile() {
         <Dropdown.Toggle className="d-flex align-items-center">
           <div className="profile-image rounded-circle overflow-hidden">
             <div className="ratio ratio-1x1">
-              <Image
-                src={session.user?.image}
-                layout="fill"
-                objectFit="cover"
-              />
+              {session.user?.image ? (
+                <Image
+                  src={session.user?.image}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              ) : (
+                <IoPersonCircle />
+              )}
             </div>
           </div>
           <div className="profile-name">{session.user?.name}</div>

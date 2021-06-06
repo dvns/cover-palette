@@ -2,21 +2,23 @@ import styled from 'styled-components';
 
 export const StyledSidebar = styled.aside`
   top: 3rem !important;
-  padding-right: 40px;
-  margin-bottom: 30px;
-  letter-spacing: -0.1rem;
 
-  @media (min-width: 375px) {
+  h2 {
+    font-weight: 400;
+    max-width: 350px;
+    padding-bottom: 1rem;
+  }
+
+  @media (min-width: 576px) and (max-width: 921.98px) {
     h2 {
-      margin-top: 50px;
-      margin-bottom: 30px;
+      max-width: 400px;
     }
   }
 
-  .blob {
-    position: absolute;
-    top: -15px;
-    left: -15px;
-    z-index: -1;
+  @media (min-width: 922px) {
+    h2 {
+      font-size: 2rem;
+      padding-right: 2rem;
+    }
   }
 `;

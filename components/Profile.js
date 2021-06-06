@@ -52,7 +52,12 @@ export default function Profile() {
         </Dropdown.Toggle>
 
         <Dropdown.Menu alignRight>
-          <Dropdown.Item as="button">View Profile</Dropdown.Item>
+          <Dropdown.Item
+            href={`https://open.spotify.com/user/${session.user?.id}`}
+            target="blank"
+          >
+            View Profile
+          </Dropdown.Item>
           <Dropdown.Item as="button" onClick={() => signOut('spotify')}>
             Sign out
           </Dropdown.Item>

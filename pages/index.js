@@ -11,12 +11,13 @@ import SignIn from '../components/SignIn';
 import { StyledSidebar } from '../styles/SidebarStyles';
 
 import Header from '../components/Header';
-import Blob from '../components/Blob';
+
 import Footer from '../components/Footer';
 import Logo from '../components/Logo';
 
 export default function Home({ tracks }) {
   const [session, sessionLoading] = useSession();
+  console.log('# session: ', session);
 
   if (sessionLoading) return <p>Loading...</p>;
 
@@ -28,9 +29,32 @@ export default function Home({ tracks }) {
         <Row className="gx-5">
           <Col lg={3} className="mb-5">
             <StyledSidebar className="sticky-top">
-              <Blob />
-              <Logo />
-              {!session && <SignIn />}
+              <div className="d-flex flex-column flex-sm-row flex-lg-column">
+                <div className="d-inline-block mx-auto mx-sm-0 me-sm-5 mb-5">
+                  <Logo blob />
+                </div>
+
+                {!session && (
+                  <div className="mx-auto ms-sm-5 ms-lg-0">
+                    <SignIn className="text-sm-start" />
+                  </div>
+                )}
+
+                {session && (
+                  <div className="ms-sm-5 ms-lg-0">
+                    <h2>
+                      Hey <strong>{session.user?.name}</strong>! 👋
+                    </h2>
+                    <h2>
+                      Here's some colour palettes based on music you've been
+                      playing lately.
+                    </h2>
+                    <h2>
+                      Click on the coloured squares to copy their HEX values.
+                    </h2>
+                  </div>
+                )}
+              </div>
             </StyledSidebar>
           </Col>
           <Col lg={8} className="mb-5">
@@ -39,7 +63,7 @@ export default function Home({ tracks }) {
                 {tracks?.map((track) => (
                   <TrackItem key={track.id} track={track} />
                 ))}
-                <SignIn className="text-center mt-5 mx-auto pt-5 pb-0 d-lg-none" />
+                <SignIn className="mx-auto d-lg-none" />
               </>
             )}
             {session && <TracksList />}

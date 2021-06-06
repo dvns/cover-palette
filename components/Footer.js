@@ -25,7 +25,7 @@ const StyledFooter = styled.footer`
   }
 
   p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   .wave {
@@ -46,20 +46,16 @@ export default function Footer() {
           <Col lg={{ span: 8, offset: 3 }}>
             <Logo />
             <Row>
-              <Col md={4}>
-                <p>&copy; {currentYear()} Cover Palettes</p>
-              </Col>
-              <Col md={4} className="text-md-center">
+              <Col xs={12}>
                 <p>
-                  Made by{' '}
+                  &copy; {currentYear()}{' '}
                   <a href="https://davinsuen.com/" target="blank">
                     Davin Suen
                   </a>
                 </p>
               </Col>
-              <Col md={4} className="text-md-end">
+              <Col xs={12}>
                 <p>
-                  See it on{' '}
                   <a
                     href="https://github.com/dvns/cover-palette"
                     target="blank"

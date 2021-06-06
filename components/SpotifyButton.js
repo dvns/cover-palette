@@ -1,4 +1,4 @@
-import { SiSpotify } from 'react-icons/si';
+import { MdArrowForward } from 'react-icons/md';
 import styled from 'styled-components';
 import { StyledButton } from '../styles/ButtonStyles';
 
@@ -14,10 +14,10 @@ const StyledSpotifyButton = styled(StyledButton)`
   }
 `;
 
-export default function SpotifyButton({ children, onClick }) {
+export default function SpotifyButton({ children, onClick, className }) {
   return (
-    <StyledSpotifyButton onClick={onClick}>
-      <SiSpotify /> {children}
+    <StyledSpotifyButton onClick={onClick} className={className}>
+      {children} <MdArrowForward />
     </StyledSpotifyButton>
   );
 }

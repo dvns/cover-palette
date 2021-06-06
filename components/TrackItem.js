@@ -17,7 +17,7 @@ import { SquarePlaceholder } from './TrackItemPlaceholder';
 const colorCount = 4;
 const format = 'hex';
 const crossOrigin = 'anonymous';
-const quality = 10;
+const quality = 1;
 
 export default function TrackItem({ track, isCurrent }) {
   const [imageIsLoaded, setImageIsLoaded] = useState(false);
@@ -95,7 +95,7 @@ export default function TrackItem({ track, isCurrent }) {
               {isCurrent && (
                 <tr>
                   <td>
-                    <Equalizer className="icon" />
+                    <Equalizer className="icon soundbar" />
                   </td>
                   <td>Currently playing</td>
                 </tr>

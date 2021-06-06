@@ -2,13 +2,9 @@ import styled from 'styled-components';
 
 const StyledTrackItem = styled.div`
   color: ${({ theme }) => theme.text};
-
-  &:not(:first-child) {
-    margin-top: 50px;
-  }
+  margin-bottom: 40px;
 
   .track-details {
-    margin-top: 10px;
     font-size: 1.2rem;
     p {
       margin: 0;
@@ -21,6 +17,12 @@ const StyledTrackItem = styled.div`
     .icon {
       margin-top: -4px;
       margin-right: 5px;
+    }
+
+    .soundbar {
+      width: 1rem;
+      height: auto;
+      fill: ${({ theme }) => theme.text};
     }
   }
 

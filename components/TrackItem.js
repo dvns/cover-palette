@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import StyledTrackItem from '../styles/TrackItemStyles';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Soundbars from './Soundbars';
 
 const colorCount = 4;
 const format = 'hex';
@@ -68,6 +69,14 @@ export default function TrackItem({ track, isCurrent }) {
       <div className="track-details">
         <table>
           <tbody>
+            {isCurrent && (
+              <tr>
+                <td>
+                  <Soundbars className="icon soundbar" />
+                </td>
+                <td>Currently playing</td>
+              </tr>
+            )}
             <tr>
               <td>
                 <MdMusicNote className="icon" />

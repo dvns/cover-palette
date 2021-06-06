@@ -46,6 +46,15 @@ const StyledTrackItem = styled.div`
     position: relative;
     overflow: hidden;
     border-radius: var(--border-radius);
+
+    img {
+      opacity: 1;
+      transition: all 0.2s;
+
+      &.hide {
+        opacity: 0;
+      }
+    }
   }
 
   .color {

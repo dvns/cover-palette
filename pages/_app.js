@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import useDarkMode from 'use-dark-mode';
 import { lightTheme, darkTheme, GlobalStyle } from '../styles/GlobalStyles';
 import { ThemeProvider } from 'styled-components';
+import 'react-placeholder/lib/reactPlaceholder.css';
 
 export default function App({ Component, pageProps }) {
   const [isMounted, setIsMounted] = useState(false);

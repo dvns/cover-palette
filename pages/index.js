@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { signOut, useSession } from 'next-auth/client';
 import { Flip, ToastContainer } from 'react-toastify';
 import Container from 'react-bootstrap/Container';

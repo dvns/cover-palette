@@ -1,6 +1,5 @@
 import useSWR from 'swr';
 import ReactPlaceholder from 'react-placeholder';
-import 'react-placeholder/lib/reactPlaceholder.css';
 import { useSession } from 'next-auth/client';
 import TrackItem from './TrackItem';
 import { TrackItemPlaceholder } from './TrackItemPlaceholder';

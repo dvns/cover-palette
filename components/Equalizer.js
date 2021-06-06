@@ -4,9 +4,10 @@ const StyledEqualizer = styled.div`
   svg {
     width: 100%;
     height: 100%;
-    g {
-      fill: ${(theme) => theme.text};
-    }
+  }
+
+  g {
+    fill: ${({ theme }) => theme.text};
   }
 
   #bar1 {

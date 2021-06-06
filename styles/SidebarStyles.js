@@ -3,10 +3,15 @@ import styled from 'styled-components';
 export const StyledSidebar = styled.aside`
   top: 3rem !important;
 
-  h2 {
+  h2,
+  p {
     font-weight: 400;
     max-width: 350px;
     padding-bottom: 1rem;
+  }
+
+  p {
+    max-width: 300px;
   }
 
   strong {

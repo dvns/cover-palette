@@ -46,16 +46,16 @@ export default function Home({ tracks }) {
                   )}
                   {session?.user && (
                     <div className="mx-auto ms-sm-5 ms-lg-0 text-center text-sm-start">
-                      <h2>
+                      <p>
                         Hey <strong>{session.user?.name}</strong>! 👋
-                      </h2>
-                      <h2>
+                      </p>
+                      <p>
                         Here's some colour palettes based on music you've been
                         playing lately.
-                      </h2>
-                      <h2>
+                      </p>
+                      <p>
                         Click on the coloured squares to copy their HEX values.
-                      </h2>
+                      </p>
                     </div>
                   )}
                 </ReactPlaceholder>

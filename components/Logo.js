@@ -2,14 +2,14 @@ import styled from 'styled-components';
 import Blob from './Blob';
 
 const StyledLogo = styled.span`
-  letter-spacing: -0.1rem;
-  line-height: 1;
   position: relative;
   display: inline-block;
 
   h1 {
     font-size: 4.8rem;
     font-weight: 700;
+    letter-spacing: -0.1rem;
+    line-height: 1;
   }
 
   .blob {

@@ -26,6 +26,8 @@ const StyledFooter = styled.footer`
 
   p {
     font-size: 1.2rem;
+    padding: 0;
+    margin: 0;
   }
 
   .wave {
@@ -34,6 +36,10 @@ const StyledFooter = styled.footer`
     left: 0;
     width: 100%;
     height: 250px;
+  }
+
+  .logo {
+    margin-bottom: 3rem;
   }
 `;
 
@@ -45,26 +51,21 @@ export default function Footer() {
         <Row className="gx-5">
           <Col lg={{ span: 8, offset: 3 }}>
             <Logo />
-            <Row>
-              <Col xs={12}>
-                <p>
-                  &copy; {currentYear()}{' '}
-                  <a href="https://davinsuen.com/" target="blank">
-                    Davin Suen
-                  </a>
-                </p>
-              </Col>
-              <Col xs={12}>
-                <p>
-                  <a
-                    href="https://github.com/dvns/cover-palette"
-                    target="blank"
-                  >
-                    GitHub
-                  </a>
-                </p>
-              </Col>
-            </Row>
+            <p>
+              <a href="https://developer.spotify.com/" target="blank">
+                Spotify API
+              </a>
+            </p>
+            <p>
+              <a href="https://github.com/dvns/cover-palette" target="blank">
+                GitHub
+              </a>
+            </p>
+            <p>
+              <a href="https://davinsuen.com/" target="blank">
+                &copy; {currentYear()} Davin Suen
+              </a>
+            </p>
           </Col>
         </Row>
       </Container>

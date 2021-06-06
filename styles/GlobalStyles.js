@@ -49,4 +49,13 @@ export const GlobalStyle = createGlobalStyle`
   .Toastify__close-button {
     color: black;
   }
+
+   a {
+     color: ${({ theme }) => theme.text};
+     transition: color 0.3s ease;
+
+     &:hover {
+      color: ${({ theme }) => theme.body};
+     }
+   }
 `;

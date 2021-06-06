@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const StyledBlob = styled.div`
-  --background_color: #000;
   --time: 30s;
 
   display: block;

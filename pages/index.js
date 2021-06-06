@@ -14,6 +14,8 @@ import { StyledSidebar } from '../styles/SidebarStyles';
 
 import Header from '../components/Header';
 import Blob from '../components/Blob';
+import Footer from '../components/Footer';
+import Logo from '../components/Logo';
 
 export default function Home({ tracks }) {
   const [session, loading] = useSession();
@@ -39,17 +41,14 @@ export default function Home({ tracks }) {
           <Col lg={3} className="mb-5">
             <StyledSidebar className="sticky-top">
               <Blob />
-              <h1>
-                Cover <br />
-                Palettes
-              </h1>
+              <Logo />
               {!session && <SignIn />}
               {session && (
                 <>
                   <SiSpotify /> {session.user?.name}
                   <span className="mx-3">|</span>
                   <StyledSignOutButton onClick={() => signOut('spotify')}>
-                    sign out
+                    Sign out
                   </StyledSignOutButton>
                 </>
               )}
@@ -61,13 +60,16 @@ export default function Home({ tracks }) {
                 {tracks?.map((track) => (
                   <TrackItem key={track.id} track={track} />
                 ))}
-                <SignIn className="text-center my-5 mx-auto" />
+                <SignIn className="text-center my-5 mx-auto d-lg-none" />
               </>
             )}
             {session && <TracksList />}
           </Col>
         </Row>
       </Container>
+
+      <Footer />
+
       <ToastContainer
         position="top-center"
         autoClose={2000}

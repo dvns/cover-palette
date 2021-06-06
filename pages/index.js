@@ -1,25 +1,22 @@
-import { signOut, useSession } from 'next-auth/client';
+import { useSession } from 'next-auth/client';
 import { Flip, ToastContainer } from 'react-toastify';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import ReactPlaceholder from 'react-placeholder';
+import { useTheme } from 'styled-components';
 import { getAccessToken, getSeveralTracks } from '../lib/spotify';
 import TracksList from '../components/TracksList';
 import TrackItem from '../components/TrackItem';
 import SignIn from '../components/SignIn';
-import { StyledSidebar } from '../styles/SidebarStyles';
-
 import Header from '../components/Header';
-
 import Footer from '../components/Footer';
 import Logo from '../components/Logo';
+import { StyledSidebar } from '../styles/SidebarStyles';
 
 export default function Home({ tracks }) {
+  const theme = useTheme();
   const [session, sessionLoading] = useSession();
-  console.log('# session: ', session);
-
-  if (sessionLoading) return <p>Loading...</p>;
 
   return (
     <>
@@ -33,27 +30,35 @@ export default function Home({ tracks }) {
                 <div className="d-inline-block mx-auto mx-sm-0 me-sm-5 mb-5">
                   <Logo blob />
                 </div>
-
-                {!session && (
-                  <div className="mx-auto ms-sm-5 ms-lg-0">
-                    <SignIn className="text-sm-start" />
-                  </div>
-                )}
-
-                {session && (
-                  <div className="ms-sm-5 ms-lg-0">
-                    <h2>
-                      Hey <strong>{session.user?.name}</strong>! 👋
-                    </h2>
-                    <h2>
-                      Here's some colour palettes based on music you've been
-                      playing lately.
-                    </h2>
-                    <h2>
-                      Click on the coloured squares to copy their HEX values.
-                    </h2>
-                  </div>
-                )}
+                <ReactPlaceholder
+                  type="text"
+                  ready={!sessionLoading}
+                  rows={6}
+                  color={theme.loadingFill}
+                  showLoadingAnimation={true}
+                  className="mx-auto ms-sm-5 ms-lg-0"
+                  style={{ maxWidth: '350px' }}
+                >
+                  {!session?.user && (
+                    <div className="mx-auto ms-sm-5 ms-lg-0">
+                      <SignIn className="text-sm-start" />
+                    </div>
+                  )}
+                  {session?.user && (
+                    <div className="mx-auto ms-sm-5 ms-lg-0 text-center text-sm-start">
+                      <h2>
+                        Hey <strong>{session.user?.name}</strong>! 👋
+                      </h2>
+                      <h2>
+                        Here's some colour palettes based on music you've been
+                        playing lately.
+                      </h2>
+                      <h2>
+                        Click on the coloured squares to copy their HEX values.
+                      </h2>
+                    </div>
+                  )}
+                </ReactPlaceholder>
               </div>
             </StyledSidebar>
           </Col>

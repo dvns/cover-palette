@@ -5,13 +5,13 @@ import { mostReadable } from '@ctrl/tinycolor';
 import { useTheme } from 'styled-components';
 import { MdAlbum, MdMusicNote, MdPerson } from 'react-icons/md';
 import CopyToClipboard from 'react-copy-to-clipboard';
-import ReactPlaceholder from 'react-placeholder';
+// import ReactPlaceholder from 'react-placeholder';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import StyledTrackItem from '../styles/TrackItemStyles';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Soundbars from './Soundbars';
+import Equalizer from './Equalizer';
 import { SquarePlaceholder } from './TrackItemPlaceholder';
 
 const colorCount = 4;
@@ -95,7 +95,7 @@ export default function TrackItem({ track, isCurrent }) {
               {isCurrent && (
                 <tr>
                   <td>
-                    <Soundbars className="icon soundbar" />
+                    <Equalizer className="icon" />
                   </td>
                   <td>Currently playing</td>
                 </tr>

@@ -19,10 +19,9 @@ const StyledTrackItem = styled.div`
       margin-right: 5px;
     }
 
-    .soundbar {
+    .equalizer {
       width: 1rem;
-      height: auto;
-      fill: ${({ theme }) => theme.text};
+      margin-top: 0;
     }
   }
 

@@ -28,7 +28,7 @@ export default function TrackItem({ track, isCurrent }) {
   });
 
   const notify = () => {
-    toast.success('Colour copied to clipboard!');
+    toast.success('Copied colour to clipboard!');
   };
 
   return (

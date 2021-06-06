@@ -60,7 +60,7 @@ export default function Home({ tracks }) {
                 {tracks?.map((track) => (
                   <TrackItem key={track.id} track={track} />
                 ))}
-                <SignIn className="text-center my-5 mx-auto d-lg-none" />
+                <SignIn className="text-center mt-5 mx-auto pt-5 pb-0 d-lg-none" />
               </>
             )}
             {session && <TracksList />}

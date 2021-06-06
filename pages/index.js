@@ -18,22 +18,12 @@ import Footer from '../components/Footer';
 import Logo from '../components/Logo';
 
 export default function Home({ tracks }) {
-  const [session, loading] = useSession();
-  console.log('# Session: ', session);
+  const [session, sessionLoading] = useSession();
 
-  if (loading) return <p>Loading...</p>;
+  if (sessionLoading) return <p>Loading...</p>;
 
   return (
-    <div>
-      <Head>
-        <title>Cover Palettes</title>
-        <meta
-          name="description"
-          content="Colours inspired by what you're listening to."
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <>
       <Header />
 
       <Container fluid className="px-5 py-5" as="main">
@@ -82,7 +72,7 @@ export default function Home({ tracks }) {
         pauseOnHover
         transition={Flip}
       />
-    </div>
+    </>
   );
 }
 

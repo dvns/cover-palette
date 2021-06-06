@@ -9,6 +9,12 @@ export const StyledSidebar = styled.aside`
     padding-bottom: 1rem;
   }
 
+  strong {
+    text-decoration: underline;
+    text-decoration-color: ${({ theme }) => theme.spotifyButton};
+    text-decoration-thickness: 5px;
+  }
+
   @media (min-width: 576px) and (max-width: 921.98px) {
     h2 {
       max-width: 400px;

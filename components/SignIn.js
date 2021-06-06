@@ -8,6 +8,7 @@ const StyledSignIn = styled.div`
   h2 {
     max-width: 350px;
     line-height: 1.4;
+    font-weight: 400;
   }
 
   button {

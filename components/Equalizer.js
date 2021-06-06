@@ -85,7 +85,7 @@ export default function Equalizer({ className }) {
         viewBox="0 0 10 7"
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
-        preserveAspectRatio
+        preserveAspectRatio="xMidYMid"
       >
         <g>
           <rect

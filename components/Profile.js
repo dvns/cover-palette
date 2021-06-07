@@ -4,6 +4,7 @@ import { signOut, useSession } from 'next-auth/client';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { HiOutlineExternalLink } from 'react-icons/hi';
 import { IoPersonCircle } from 'react-icons/io5';
+import * as ga from '../lib/ga';
 
 const StyledProfile = styled.div`
   --spacer: 10px;
@@ -65,10 +66,32 @@ export default function Profile() {
           <Dropdown.Item
             href={`https://open.spotify.com/user/${session.user?.id}`}
             target="blank"
+            onClick={() => {
+              ga.event({
+                action: 'button_click',
+                params: {
+                  category: 'Spotify',
+                  label: 'View Profile',
+                },
+              });
+            }}
           >
             View Profile <HiOutlineExternalLink className="icon" />
           </Dropdown.Item>
-          <Dropdown.Item as="button" onClick={() => signOut('spotify')}>
+          <Dropdown.Item
+            as="button"
+            onClick={() => {
+              signOut('spotify');
+
+              ga.event({
+                action: 'button_click',
+                params: {
+                  category: 'Spotify',
+                  label: 'Sign out',
+                },
+              });
+            }}
+          >
             Sign out
           </Dropdown.Item>
         </Dropdown.Menu>

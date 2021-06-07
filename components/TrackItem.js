@@ -33,18 +33,15 @@ export default function TrackItem({ track, isCurrent }) {
     quality,
   });
 
-  const notify = () => {
+  const notify = (color) => {
     toast.success('Copied colour to clipboard!');
     ga.event({
-      action: 'select_content',
+      action: 'copy_colour',
       params: {
-        content_type: 'Album Colour',
-        items: [
-          {
-            id: track.album.id,
-            name: track.album.name,
-          },
-        ],
+        category: 'Album',
+        label: track.album.name,
+        album_id: track.album.id,
+        colour: color,
       },
     });
   };
@@ -85,7 +82,10 @@ export default function TrackItem({ track, isCurrent }) {
         {paletteData &&
           paletteData.map((color) => (
             <Col key={color}>
-              <CopyToClipboard text={color.toUpperCase()} onCopy={notify}>
+              <CopyToClipboard
+                text={color.toUpperCase()}
+                onCopy={() => notify(color)}
+              >
                 <div className="square color ratio ratio-1x1">
                   <button
                     style={{

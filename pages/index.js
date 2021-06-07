@@ -40,7 +40,7 @@ export default function Home({ tracks }) {
                   style={{ maxWidth: '350px' }}
                 >
                   {!session?.user && (
-                    <div className="mx-auto ms-sm-5 ms-lg-0">
+                    <div className="mx-auto ms-sm-5 ms-lg-0 mb-5">
                       <SignIn className="text-sm-start" />
                     </div>
                   )}
@@ -68,7 +68,7 @@ export default function Home({ tracks }) {
                 {tracks?.map((track) => (
                   <TrackItem key={track.id} track={track} />
                 ))}
-                <SignIn className="mx-auto d-lg-none" />
+                <SignIn className="mx-auto d-lg-none pt-5" />
               </>
             )}
             {session && <TracksList />}
@@ -97,11 +97,12 @@ export default function Home({ tracks }) {
 export async function getStaticProps() {
   const accessToken = await getAccessToken();
   const ids = [
-    '2EqlS6tkEnglzr7tkKAAYD', // beatles
+    '4iJyoBOLtHqaGxP12qzhQI', // bieber
+    '1z6WtY7X4HQJvzxC4UgkSf', // beyonce
     '0v9Wz8o0BT8DU38R4ddjeH', // chance
-    '3hNywmR93yvj68y2zl8mRt', // busty
-    '6g0Orsxv6glTJCt4cHsRsQ', // beyonce
+    '2EqlS6tkEnglzr7tkKAAYD', // beatles
     '41zXlQxzTi6cGAjpOXyLYH', // billie
+    // '3hNywmR93yvj68y2zl8mRt', // busty
   ];
   const items = await getSeveralTracks(
     accessToken.access_token,

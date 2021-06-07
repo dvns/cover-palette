@@ -5,7 +5,6 @@ import { mostReadable } from '@ctrl/tinycolor';
 import { useTheme } from 'styled-components';
 import { MdAlbum, MdMusicNote, MdPerson } from 'react-icons/md';
 import CopyToClipboard from 'react-copy-to-clipboard';
-// import ReactPlaceholder from 'react-placeholder';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import StyledTrackItem from '../styles/TrackItemStyles';
@@ -13,6 +12,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Equalizer from './Equalizer';
 import { SquarePlaceholder } from './TrackItemPlaceholder';
+import * as ga from '../lib/ga';
 
 const colorCount = 4;
 const format = 'hex';
@@ -35,6 +35,18 @@ export default function TrackItem({ track, isCurrent }) {
 
   const notify = () => {
     toast.success('Copied colour to clipboard!');
+    ga.event({
+      action: 'select_content',
+      params: {
+        content_type: 'Album Colour',
+        items: [
+          {
+            id: track.album.id,
+            name: track.album.name,
+          },
+        ],
+      },
+    });
   };
 
   return (

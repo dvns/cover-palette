@@ -53,7 +53,6 @@ export default NextAuth({
       scope: 'user-read-recently-played user-read-currently-playing',
       clientId: process.env.SPOTIFY_CLIENT_ID,
       clientSecret: process.env.SPOTIFY_CLIENT_SECRET,
-      debug: true,
     }),
     // ...add more providers here
   ],
@@ -62,7 +61,7 @@ export default NextAuth({
       // Initial sign in
       if (account && user) {
         console.log('# Initial sign in');
-        console.log({ token, user, account });
+        // console.log({ token, user, account });
         return {
           accessToken: account.accessToken,
           accessTokenExpires: Date.now() + account.expires_in * 1000,

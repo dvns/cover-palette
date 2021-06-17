@@ -98,10 +98,11 @@ export async function getStaticProps() {
   const accessToken = await getAccessToken();
   const ids = [
     '4iJyoBOLtHqaGxP12qzhQI', // bieber
-    '0v9Wz8o0BT8DU38R4ddjeH', // chance
-    '1z6WtY7X4HQJvzxC4UgkSf', // beyonce
-    '2EqlS6tkEnglzr7tkKAAYD', // beatles
     '41zXlQxzTi6cGAjpOXyLYH', // billie
+    '0v9Wz8o0BT8DU38R4ddjeH', // chance
+    // '1z6WtY7X4HQJvzxC4UgkSf', // beyonce
+    '2EqlS6tkEnglzr7tkKAAYD', // beatles
+    '5hM5arv9KDbCHS0k9uqwjr', // tame
     // '3hNywmR93yvj68y2zl8mRt', // busty
   ];
   const items = await getSeveralTracks(
